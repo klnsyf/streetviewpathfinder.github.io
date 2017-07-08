@@ -79,8 +79,9 @@
           center: {lat: -33.8688, lng: 151.2195},
           zoom: 13,
           mapTypeId: 'roadmap'
-          var infoWindow = new google.maps.InfoWindow({map: map});
           });
+          var infoWindow = new google.maps.InfoWindow({map: map});
+
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
