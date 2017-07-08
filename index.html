@@ -126,8 +126,8 @@
           var marker = markerArray[i] = markerArray[i] || new google.maps.Marker;
           marker.setMap(map);
           marker.setPosition(myRoute.steps[i].start_location);
-          var markerlat=myRoute.steps[i].start_location.lat;
-          var markerlng=myRoute.steps[i].start_location.lng;
+          var markerlat=myRoute.steps[i].start_location.lat();
+          var markerlng=myRoute.steps[i].start_location.lng();
           var contentString = '<figure>'+'<img src="https://maps.googleapis.com/maps/api/streetview?size=320*240&location='+markerlat+','+markerlng+'&heading=0&pitch=0&scale=2&key=AIzaSyAdUVFJH06fMUerZm1mLBzNBnpuAgYl-vA"/>'+'</figure>';
           attachInstructionText(
               stepDisplay, marker, contentString,map);
