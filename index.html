@@ -36,7 +36,7 @@
         margin-left: 12px;
         padding: 0 11px 0 13px;
         text-overflow: ellipsis;
-        width: 200px;
+        width: 450px;
       }
 
       #origin-input:focus,
@@ -136,7 +136,7 @@
 
         this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
         this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(destinationInput);
-        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
+        this.map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(modeSelector);
       }
 
       // Sets a listener on a radio button to change the filter type on Places
