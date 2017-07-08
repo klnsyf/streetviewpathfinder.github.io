@@ -85,7 +85,8 @@
              map: map
            });
             map.setCenter(pos);
-          };
+          }, function() {
+          });
         } else {
           alert("Browser doesn't support Geolocation");
         }
