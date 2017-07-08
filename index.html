@@ -73,6 +73,8 @@
         var stepDisplay = new google.maps.InfoWindow;
 
         // Display the route between the initial start and end selections.
+        calculateAndDisplayRoute(
+            directionsDisplay, directionsService, markerArray, stepDisplay, map);
         // Listen to change events from the start and end lists.
         var onChangeHandler = function() {
           calculateAndDisplayRoute(
