@@ -126,21 +126,19 @@
           var marker = markerArray[i] = markerArray[i] || new google.maps.Marker;
           marker.setMap(map);
           marker.setPosition(myRoute.steps[i].start_location);
+          var markerlat=myRoute.steps[i].start_location.lat;
+          var markerlng=myRoute.steps[i].start_location.lng;
+          var contentString = '<figure>'+'<img src="https://maps.googleapis.com/maps/api/streetview?size=320*240&location='+markerlat+','+markerlng+'&heading=0&pitch=0&scale=2&key=AIzaSyAdUVFJH06fMUerZm1mLBzNBnpuAgYl-vA"/>'+'</figure>';
           attachInstructionText(
-              stepDisplay, marker, map);
+              stepDisplay, marker, contentString,map);
         }
       }
 
-      function attachInstructionText(stepDisplay, marker, map) {
+      function attachInstructionText(stepDisplay, marker, text,map) {
         google.maps.event.addListener(marker, 'click', function() {
           // Open an info window when the marker is clicked on, containing the text
           // of the step.
-          var lat=new Number;
-          lat=marker.position.lat;
-          var lng=new Number;
-          lng=marker.position.lng;
-          var contentString = '<figure>'+'<img src="https://maps.googleapis.com/maps/api/streetview?size=320*240&location='+lat+','+lng+'&heading=0&pitch=0&scale=2&key=AIzaSyAdUVFJH06fMUerZm1mLBzNBnpuAgYl-vA"/>'+'</figure>';
-          stepDisplay.setContent(contentString);
+          stepDisplay.setContent(text);
           stepDisplay.open(map, marker);
         });
       }
