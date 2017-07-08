@@ -16,19 +16,23 @@
         margin: 0;
         padding: 0;
       }
-      #floating-panel {
-        position: absolute;
-        top: 10px;
-        left: 25%;
-        z-index: 5;
+      #start,
+      #end {
         background-color: #fff;
-        padding: 5px;
-        border: 1px solid #999;
-        text-align: center;
-        font-family: 'Roboto','sans-serif';
-        line-height: 30px;
-        padding-left: 10px;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 400px;
       }
+
+      #start:focus,
+      #end:focus {
+        border-color: #4d90fe;
+      }
+
       #warnings-panel {
         width: 100%;
         height:10%;
@@ -41,7 +45,7 @@
     <b>Start: </b>
     <input id="start" class="controls" type="text" placeholder="Enter an origin location">
     <b>End: </b>
-    <select id="end" class="controls" type="text" placeholder="Enter an origin location">
+    <select id="end" class="controls" type="text" placeholder="Enter an destination location">
     </div>
     <div id="map"></div>
     &nbsp;
