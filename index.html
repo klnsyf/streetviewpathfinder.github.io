@@ -135,8 +135,10 @@
         google.maps.event.addListener(marker, 'click', function() {
           // Open an info window when the marker is clicked on, containing the text
           // of the step.
-          var lat=marker.position.lat;
-          var lng=marker.position.lng;
+          var lat=new Number;
+          lat=marker.position.lat;
+          var lng=new Number;
+          lng=marker.position.lng;
           var contentString = '<figure>'+'<img src="https://maps.googleapis.com/maps/api/streetview?size=320*240&location='+lat+','+lng+'&heading=0&pitch=0&scale=2&key=AIzaSyAdUVFJH06fMUerZm1mLBzNBnpuAgYl-vA"/>'+'</figure>';
           stepDisplay.setContent(contentString);
           stepDisplay.open(map, marker);
