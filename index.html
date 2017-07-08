@@ -126,7 +126,7 @@
           var marker = markerArray[i] = markerArray[i] || new google.maps.Marker;
           marker.setMap(map);
           marker.setPosition(myRoute.steps[i].start_location);
-          var contentString = '<figure>'+'<img src="https://maps.googleapis.com/maps/api/streetview?size=600*300&location='+marker.position.lat()+','+(Math.round(marker.position.lng()*1000000))/1000000+'&heading=0&pitch=0&scale=2&key=AIzaSyAdUVFJH06fMUerZm1mLBzNBnpuAgYl-vA"/>'+'</figure>';
+          var contentString = '<figure>'+'<img src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location='+marker.position.lat()+','+(Math.round(marker.position.lng()*1000000))/1000000+'&heading=0&pitch=0&scale=2&key=AIzaSyAdUVFJH06fMUerZm1mLBzNBnpuAgYl-vA"/>'+'</figure>';
           attachInstructionText(
               stepDisplay, marker, contentString,map);
         }
