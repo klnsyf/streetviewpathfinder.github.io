@@ -135,7 +135,7 @@
         google.maps.event.addListener(marker, 'click', function() {
           // Open an info window when the marker is clicked on, containing the text
           // of the step.
-          var contentString = '<figure>'+'<img src="https://maps.googleapis.com/maps/api/streetview?size=320*240&location='+marker.position.latitude+','+marker.position.longitude+'&heading=0&pitch=0&scale=2&key=AIzaSyAdUVFJH06fMUerZm1mLBzNBnpuAgYl-vA"/>'+'</figure>';
+          var contentString = '<figure>'+'<img src="https://maps.googleapis.com/maps/api/streetview?size=320*240&location='+marker.position.lat+','+marker.position.lng+'&heading=0&pitch=0&scale=2&key=AIzaSyAdUVFJH06fMUerZm1mLBzNBnpuAgYl-vA"/>'+'</figure>';
           stepDisplay.setContent(contentString);
           stepDisplay.open(map, marker);
         });
