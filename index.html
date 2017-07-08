@@ -237,9 +237,9 @@
         // Retrieve the start and end locations and create a DirectionsRequest using
         // WALKING directions.
         directionsService.route({
-          origin: document.getElementById('start').value,
-          destination: document.getElementById('end').value,
-          travelMode: 'WALKING'
+          origin: {'placeId': this.originPlaceId},
+          destination: {'placeId': this.destinationPlaceId},
+          travelMode: this.travelMode
         }, function(response, status) {
           // Route the directions and pass the response to a function to create
           // markers for each step.
