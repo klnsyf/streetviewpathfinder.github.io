@@ -36,6 +36,19 @@
         height:10%;
         text-align: center;
       }
+      #mode-selector {
+        color: #fff;
+        background-color: #4d90fe;
+        margin-left: 12px;
+        padding: 5px 11px 0px 11px;
+      }
+
+      #mode-selector label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+      }
+
     </style>
   </head>
   <body>
@@ -46,7 +59,17 @@
     <input id="end" class="controls" type="text" placeholder="Enter an destination location">
     </div>
     <div id="map"></div>
-    &nbsp;
+    <div id="mode-selector" class="controls">
+      <input type="radio" name="type" id="changemode-walking" checked="checked">
+      <label for="changemode-walking">Walking</label>
+
+      <input type="radio" name="type" id="changemode-transit">
+      <label for="changemode-transit">Transit</label>
+
+      <input type="radio" name="type" id="changemode-driving">
+      <label for="changemode-driving">Driving</label>
+    </div>
+
     <div id="warnings-panel"></div>
     <script>
       function initMap() {
@@ -65,7 +88,7 @@
         // Display the route between the initial start and end selections.
         // Listen to change events from the start and end lists.
         var onChangeHandler = function() {
-          if(document.getElementById('start').value!=0&&document.getElementById('end').value!=0){
+          if(document.getElementById('start').value != 0 && document.getElementById('end').value != 0){
           calculateAndDisplayRoute(
               directionsDisplay, directionsService, markerArray, stepDisplay, map);
         }
