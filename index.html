@@ -64,19 +64,14 @@
           alert("Browser doesn't support Geolocation");
         }
         var markerArray = [];
-        // Instantiate a directions service.
         var directionsService = new google.maps.DirectionsService;
-        // Create a map and center it on Manhattan.
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 13,
           center: {lat: 9.1734, lng: -1.1037}
+          // [Laugh] By Klnsyf Sun
         });
-        // Create a renderer for directions and bind it to the map.
         var directionsDisplay = new google.maps.DirectionsRenderer({map: map});
-        // Instantiate an info window to hold step text.
         var stepDisplay = new google.maps.InfoWindow;
-        // Display the route between the initial start and end selections.
-        // Listen to change events from the start and end lists.
         var onChangeHandler = function() {
           if(document.getElementById('start').value != 0 && document.getElementById('end').value != 0){
           calculateAndDisplayRoute(
@@ -89,19 +84,15 @@
       }
       function calculateAndDisplayRoute(directionsDisplay, directionsService,
           markerArray, stepDisplay, map) {
-        // First, remove any existing markers from the map.
         for (var i = 0; i < markerArray.length; i++) {
           markerArray[i].setMap(null);
         }
-        // Retrieve the start and end locations and create a DirectionsRequest using
-        // WALKING directions.
+        // 路径生成
         directionsService.route({
           origin: document.getElementById('start').value,
           destination: document.getElementById('end').value,
           travelMode: 'WALKING'
         }, function(response, status) {
-          // Route the directions and pass the response to a function to create
-          // markers for each step.
           if (status === 'OK') {
             document.getElementById('warnings-panel').innerHTML =
                 '<b>' + response.routes[0].warnings + '</b>';
@@ -113,9 +104,7 @@
         });
       }
       function showSteps(directionResult, markerArray, stepDisplay, map) {
-        // For each step, place a marker, and add the text to the marker's infowindow.
-        // Also attach the marker to an array so we can keep track of it and remove it
-        // when calculating new routes.
+        // 遍历检索路径中的转折点
         var myRoute = directionResult.routes[0].legs[0];
         for (var i = 0; i < myRoute.steps.length; i++) {
           var marker = markerArray[i] = markerArray[i] || new google.maps.Marker;
@@ -128,16 +117,14 @@
       }
       function attachInstructionText(stepDisplay, marker, text,map) {
         google.maps.event.addListener(marker, 'click', function() {
-          // Open an info window when the marker is clicked on, containing the text
-          // of the step.
+          // 点击Marker以显示当年位置的Street View
           stepDisplay.setContent(text);
           stepDisplay.open(map, marker);
         });
       }
-      /**
-        * @constructor
-       */
+
       function AutocompleteDirectionsHandler(map) {
+        // 变量及监听器初始化
         this.map = map;
         this.originPlaceId = null;
         this.destinationPlaceId = null;
@@ -156,8 +143,6 @@
         this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
         this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(destinationInput);
       }
-      // Sets a listener on a radio button to change the filter type on Places
-      // Autocomplete.
       AutocompleteDirectionsHandler.prototype.setupClickListener = function(id, mode) {
         var radioButton = document.getElementById(id);
         var me = this;
