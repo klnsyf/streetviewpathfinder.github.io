@@ -101,6 +101,7 @@
         };
         document.getElementById('start').addEventListener('change', onChangeHandler);
         document.getElementById('end').addEventListener('change', onChangeHandler);
+        document.getElementById('mode-selector').addEventListener('change', onChangeHandler);
         new AutocompleteDirectionsHandler(map);
       }
       function calculateAndDisplayRoute(directionsDisplay, directionsService,
@@ -114,7 +115,7 @@
         directionsService.route({
           origin: document.getElementById('start').value,
           destination: document.getElementById('end').value,
-          travelMode: 'WALKING'
+          travelMode: document.getElementById('mode-selector').value
         }, function(response, status) {
           // Route the directions and pass the response to a function to create
           // markers for each step.
