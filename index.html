@@ -52,12 +52,8 @@
     </style>
   </head>
   <body>
-    <div id="floating-panel">
-    <b>Start: </b>
     <input id="start" class="controls" type="text" placeholder="Enter an origin location">
-    <b>End: </b>
     <input id="end" class="controls" type="text" placeholder="Enter an destination location">
-    </div>
     <div id="map"></div>
     <div id="mode-selector" class="controls">
       <input type="radio" name="type" id="changemode-walking" checked="checked">
@@ -169,7 +165,7 @@
         this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
         this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
         this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(destinationInput);
-        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
+        this.map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(modeSelector);
       }
       // Sets a listener on a radio button to change the filter type on Places
       // Autocomplete.
