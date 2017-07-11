@@ -122,7 +122,7 @@
       }
       function attachInstructionText(stepDisplay, marker, text,map) {
         google.maps.event.addListener(marker, 'click', function() {
-          // 点击Marker以显示当年位置的Street View
+          // 点击Marker以显示当前位置的Street View
           stepDisplay.setContent(text);
           stepDisplay.open(map, marker);
         });
